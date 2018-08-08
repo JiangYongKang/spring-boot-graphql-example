@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vincent.mybatis.example.mapper.MemberMapper">
-
-    <select id="all" resultType="com.vincent.mybatis.example.model.Member">
-        select * from member
+    <select id="selectAll" resultType="com.vincent.mybatis.example.model.Member">
+        select *
+        from member
     </select>
 
+    <select id="findById" resultType="com.vincent.mybatis.example.model.Member">
+        select *
+        from member
+        where id = #{id}
+    </select>
 
+    <select id="findByEmail" resultType="com.vincent.mybatis.example.model.Member">
+        select *
+        from member
+        where email = #{email}
+    </select>
+
+    <select id="first" resultType="com.vincent.mybatis.example.model.Member">
+        select *
+        from member
+        order by id desc
+        limit 1
+    </select>
+
+    <insert id="save">
+        insert into member (email, password)
+        values (#{email}, #{password});
+    </insert>
+
+    <update id="update">
+        update member
+        set email    = #{email},
+            password = #{password}
+        where id = #{id}
+    </update>
+
+    <delete id="destroy">
+        delete
+        from member
+        where id = #{id}
+    </delete>
 </mapper>
