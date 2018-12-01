@@ -54,8 +54,9 @@ public class UserMutationResolver implements GraphQLMutationResolver {
      * 删除用户
      * @param id
      */
-    public void delete(Integer id) {
+    public Boolean delete(Integer id) {
         userRepository.deleteById(id);
+        return true;
     }
 
 }

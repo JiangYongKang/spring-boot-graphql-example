@@ -35,7 +35,7 @@ public class User {
     private String password;
 
     @Column(name = "status", columnDefinition = "integer(10) default 0", nullable = false)
-    private Integer status;
+    private Integer status = 0;
 
     @CreationTimestamp
     @Column(name = "created_at")
